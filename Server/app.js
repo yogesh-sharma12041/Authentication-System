@@ -11,11 +11,15 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 connectDB();
 
-const allowedOrigins = ['https://authentication-system-backend-4spv.onrender.com']
+// const allowedOrigins = ['https://authentication-system-backend-4spv.onrender.com']
 
 app.use(express.json());
 app.use(cookieParser());
-app.use(cors({origin: allowedOrigins, credentials: true }));
+app.use(cors({
+  origin: 'https://authentication-system-frontend-one.vercel.app',
+  methods: 'GET,POST,PUT,DELETE',
+  credentials: true // If you're using cookies or authentication headers
+}));
 
 //API Endpoints
 app.get("/", (req, res) => {
