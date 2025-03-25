@@ -17,8 +17,6 @@ app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
   origin: 'https://authentication-system-frontend-one.vercel.app',
-  methods: 'GET,POST,PUT,DELETE',
-  credentials: true // If you're using cookies or authentication headers
 }));
 
 //API Endpoints
