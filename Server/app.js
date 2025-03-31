@@ -14,6 +14,7 @@ connectDB();
 const allowedOrigins = [
   "https://authentication-system-f-git-3966c5-yogesh-sharma12041s-projects.vercel.app",
   "https://authentication-system-frontend-yogesh-sharma12041s-projects.vercel.app",
+  "authentication-system-frontend-nine.vercel.app"
 ];
 
 app.use(express.json());
