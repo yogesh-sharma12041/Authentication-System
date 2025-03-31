@@ -11,6 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 connectDB();
 
+app.use(express.json());
+app.use(cookieParser());
+
 const allowedOrigins = [
   "https://authentication-system-f-git-3966c5-yogesh-sharma12041s-projects.vercel.app",
   "https://authentication-system-frontend-yogesh-sharma12041s-projects.vercel.app",
@@ -18,8 +21,7 @@ const allowedOrigins = [
   "https://www.authentication-system-frontend-nine.vercel.app",
 ];
 
-app.use(express.json());
-app.use(cookieParser());
+
 app.use(cors({ origin: allowedOrigins, credentials: true }));
 
 //API Endpoints
