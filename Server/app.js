@@ -12,10 +12,11 @@ const PORT = process.env.PORT || 4000;
 connectDB();
 
 const allowedOrigins = [
-  "https://authentication-system-f-git-3966c5-yogesh-sharma12041s-projects.vercel.app",
-  "https://authentication-system-frontend-yogesh-sharma12041s-projects.vercel.app",
-  "https://authentication-system-frontend-nine.vercel.app",
-  "https://www.authentication-system-frontend-nine.vercel.app"
+  "https://authentication-system-yogesh-sharma12041s-projects.vercel.app",
+  "https://authentication-system-git-main-yogesh-sharma12041s-projects.vercel.app",
+  "https://authentication-system-fawn.vercel.app",
+  "https://www.authentication-system-fawn.vercel.app",
+  
 ];
 
 
