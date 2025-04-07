@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { AppContext } from "../Context/AppContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Loading from "../Components/Loading";
 
 const Login = () => {
 
@@ -33,6 +34,10 @@ const Login = () => {
             }
         } else {
             const {data} = await axios.post(backendUrl + '/api/auth/login', {email, password});
+
+            if(!data || data === null || data === undefined) {
+              return(<Loading/>)
+            }
 
             if(data.success) {
                 setLoggedIn(true)
