@@ -15,42 +15,43 @@ const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [Loading, setLoading] = useState(false)
 
-  const onSubmitHandler = async(e) => {
-    try{
-        e.preventDefault();
-
-        axios.defaults.withCredentials = true;
-
-        if(state === 'Sign Up') {
-            const {data} = await axios.post(backendUrl + '/api/auth/register', {name, email, password})
-
-            if(data.success) {
-                setLoggedIn(true);
-                getUserData()
-                navigate('/');
-            } else {
-                toast.error(data.message)
-            }
+  const onSubmitHandler = async (e) => {
+    e.preventDefault();
+    setLoading(true); // start loader
+    axios.defaults.withCredentials = true;
+  
+    try {
+      if (state === "Sign Up") {
+        const { data } = await axios.post(`${backendUrl}/api/auth/register`, { name, email, password });
+  
+        if (data.success) {
+          setLoggedIn(true);
+          await getUserData();
+          navigate('/');
         } else {
-            const {data} = await axios.post(backendUrl + '/api/auth/login', {email, password});
-
-            if(!data || data === null || data === undefined) {
-              return(<Loading/>)
-            }
-
-            if(data.success) {
-                setLoggedIn(true)
-                getUserData()
-                navigate('/')
-            } else {
-                toast.error(data.message);
-            }
+          toast.error(data.message);
         }
-    } catch(error) {
-        toast.error(error.message)
+      } else {
+        const { data } = await axios.post(`${backendUrl}/api/auth/login`, { email, password });
+  
+        if (data.success) {
+          setLoggedIn(true);
+          await getUserData();
+          navigate('/');
+        } else {
+          toast.error(data.message);
+        }
+      }
+    } catch (error) {
+      toast.error(error.message);
+    } finally {
+      setLoading(false); // stop loader
     }
-  }
+  };
+  
+  if (Loading) return <Loading />;
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400">
