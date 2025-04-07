@@ -2,7 +2,7 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div>Loading...</div>
+    <div className='text-cyan-200'>Loading...</div>
   )
 }
 
