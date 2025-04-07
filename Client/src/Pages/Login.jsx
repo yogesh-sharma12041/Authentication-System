@@ -15,7 +15,7 @@ const Login = () => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [Loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false)
 
   const onSubmitHandler = async (e) => {
     e.preventDefault();
@@ -51,7 +51,7 @@ const Login = () => {
     }
   };
   
-  if (Loading) return <Loading />;
+  if (loading) return <Loading />;
 
   return (
     <div className="flex items-center justify-center min-h-screen px-6 sm:px-0 bg-gradient-to-br from-blue-200 to-purple-400">
