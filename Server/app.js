@@ -11,7 +11,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 connectDB();
 
-allowed_Origin = ["https://authentication-system-frontend-ten.vercel.app",
+const allowedOrigins = ["https://authentication-system-frontend-ten.vercel.app",
   "https://authentication-system-frontend-yogesh-sharma12041s-projects.vercel.app",
   "https://authentication-system-f-git-3966c5-yogesh-sharma12041s-projects.vercel.app"]
 

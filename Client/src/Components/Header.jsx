@@ -1,10 +1,13 @@
 import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import { AppContext } from '../Context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 const Header = () => {
 
     const {userData} = useContext(AppContext)
+
+    const navigate = useNavigate()
 
   return (
     <div className='flex flex-col items-center mt-20 px-4 text-center text-gray-800'>
